@@ -203,7 +203,12 @@
         const startDate = new Date(2020, 10, 6);
         const currentDate = new Date();
         const year = currentDate.getFullYear();
-        const month = 1 + currentDate.getMonth();
+        let month ;
+        if(currentDate.getMonth() > 9) {
+            month = 1 + currentDate.getMonth();
+        } else {
+            month = `0${currentDate.getMonth() + 1}`;
+        }
         const day = currentDate.getDate();
         let today = `${year}${month}${day}`;
 
