@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.form {
+  background-color: silver;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  width: 600px;
+
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+
+.cont {
+  display: grid;
+  grid-template-areas:
+      "source-left source-right"
+      "top-left top-right"
+      "left right"
+      "mid-left mid-right"
+      "middle middle"
+      "bottom bottom"
+
+  ;
+  justify-items: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.rateSourceLabel {
+  grid-area: source-left;
+}
+
+.rateSourceSelect {
+  grid-area: source-right;
+}
+
+#currency-label {
+  grid-area: top-left;
+}
+
+#currency-input {
+  grid-area: top-right;
+}
+
+#currency[readonly] {
+  background-color: #777;
+  color: white;
+  padding: 1px;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+#month-label {
+  grid-area: left;
+}
+
+#month-input {
+  grid-area: right;
+}
+
+#mid-left {
+  grid-area: mid-left;
+}
+
+#mid-right {
+  grid-area: mid-right;
+}
+
+#currency-input input,
+#month-input input {
+  text-align: center;
+  width: 120px;
+}
+
+.middle {
+  grid-area: middle;
+}
+
+.btn.bottom {
+  grid-area: bottom;
+  text-align: center;
+}
+
+form * {
+  outline: none;
+}
+
+form p {
+  text-align: center;
+}
+
+form button {
+  flex-basis: 450px;
+}
+
+@media screen and (max-width: 400px) {
+  .form {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      box-sizing: border-box;
+  }
+
+  .cont {
+      grid-template-areas:
+          "source-left source-right"
+          "top-left top-left"
+          "top-right top-right"
+          "left left"
+          "right right"
+          "mid-left mid-left "
+          "mid-right mid-right"
+          "middle middle"
+          "bottom bottom"
+      ;
+      gap: 5px;
+      justify-items: center;
+      align-items: center;
+      grid-auto-rows: 40px;
+      position: absolute;
+      top: 50%;
+      left: 40%;
+      transform: translate(-40%, -50%);
+      width: 60%;
+  }
+}
