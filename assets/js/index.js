@@ -5,6 +5,7 @@ let maxSumElem = document.querySelector('#maxSum');
 let currInput = document.querySelector('#currency');
 let rateSourceSelect = document.querySelector('.rateSourceSelect');
 let rateSourceLabel = document.querySelector('.rateSourceLabel');
+const currentEducationMonth = document.querySelector('#month');
 
 const startDate = new Date(2020, 10, 6);
 const currentDate = new Date();
@@ -25,6 +26,7 @@ function nbuRate() {
     .then(function (data) {
       const {rate, exchangedate, cc} = data[0];
       currInput.value = rate;
+      currentEducationMonth.value = getCurrentEducationMonth(startDate, currentDate);
       calculateCost();
 
     })
@@ -70,6 +72,13 @@ function switchRateInputReadonly() {
 
 function fixMonthDisplay(month) {
   return month >= 10 ?  month : `0${month}`;
+}
+
+function getCurrentEducationMonth(startDate, currentDate) {
+  let monthOffset = (currentDate.getFullYear() - startDate.getFullYear()) *12 + 1;
+
+  return (currentDate.getMonth() - startDate.getMonth() + monthOffset);
+
 }
 
 btn.addEventListener('click', calculateCost);
